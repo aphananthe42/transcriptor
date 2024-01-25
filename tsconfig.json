@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "lib": ["es2020"],
+    "module": "commonjs",
+    "moduleResolution": "node10",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "baseUrl": "src",
+    "strict": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+  },
+  "include": ["src/**/*"],
+  "exclude": ["dist", "node_modules"],
+  "compileOnSave": false
+}

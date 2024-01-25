@@ -1,0 +1,26 @@
+{
+  "name": "transcriptor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "ts-node src",
+    "dev:watch": "ts-node-dev --respawn src",
+    "clean": "rimraf dist/*",
+    "tsc": "tsc",
+    "build": "npm-run-all clean tsc",
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.11.6",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^5.0.5",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
+  }
+}
