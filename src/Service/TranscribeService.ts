@@ -20,14 +20,14 @@ export class TranscribeService {
 
   async startTranscriptionJob(
     targetObjectKey: string,
-    mediaFormat?: string,
-    languageCode?: string,
+    mediaFormat: string,
+    languageCode: string,
+    speakerCount: number,
     languageModelName?: string,
-    speakerCount?: number,
   ): Promise<string> {
     const params = new StartTranscriptionJobCommand({
       TranscriptionJobName: DateService.createCurrentDateString(),
-      LanguageCode: languageCode as LanguageCode ?? "ja-JP",
+      LanguageCode: languageCode as LanguageCode,
       MediaFormat: mediaFormat as MediaFormat ?? "wav",
       Media: {
         MediaFileUri: `https://${Deno.env.get("AWS_S3_BUCKET_NAME")}.s3.${
@@ -40,7 +40,7 @@ export class TranscribeService {
       OutputBucketName: Deno.env.get("AWS_S3_BUCKET_NAME"),
       Settings: {
         ShowSpeakerLabels: !(speakerCount === 1),
-        MaxSpeakerLabels: speakerCount ?? 1,
+        MaxSpeakerLabels: (speakerCount === 1) ? undefined : speakerCount,
       },
     });
 
