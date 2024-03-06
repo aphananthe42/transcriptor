@@ -39,7 +39,7 @@ export class TranscribeService {
       },
       OutputBucketName: Deno.env.get("AWS_S3_BUCKET_NAME"),
       Settings: {
-        ShowSpeakerLabels: true,
+        ShowSpeakerLabels: !(speakerCount === 1),
         MaxSpeakerLabels: speakerCount ?? 1,
       },
     });
