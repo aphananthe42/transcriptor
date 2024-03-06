@@ -3,6 +3,7 @@ import { parseArgs } from "./deps.ts";
 import { readAll } from "./deps.ts";
 import { fileTypeFromFile } from "./deps.ts";
 import { extname } from "./deps.ts";
+import { ora } from "./deps.ts";
 import { S3Service } from "./Service/S3Service.ts";
 import { TranscribeService } from "./Service/TranscribeService.ts";
 import { DateService } from "./Service/DateService.ts";
@@ -33,17 +34,21 @@ const s3Service = new S3Service();
 const transcribeService = new TranscribeService();
 const openAIService = new OpenAIService();
 
-try {
-  const s3ObjectKey = ((fileExtension: string) => {
-    return `${DateService.createCurrentDateString()}.${fileExtension}`;
-  })(fileExtension);
+const s3ObjectKey = ((fileExtension: string) => {
+  return `${DateService.createCurrentDateString()}.${fileExtension}`;
+})(fileExtension);
 
+const spinner = ora("");
+try {
+  spinner.start("Uploading audio data to S3...");
   await s3Service.putObject(
     s3ObjectKey,
     fileCotent,
     fileType?.mime ?? "",
   );
+  spinner.succeed();
 
+  spinner.start("Transcribing audio data into text...");
   const transcriptionJobName = await transcribeService.startTranscriptionJob(
     s3ObjectKey,
     fileExtension,
@@ -56,7 +61,9 @@ try {
     transcriptionJobName,
   );
   await transcribeService.deleteTranscriptionJob(transcriptionJobName);
+  spinner.succeed();
 
+  spinner.start("Formatting transcription result...");
   const getObjectResult = await s3Service.getObject(transcriptFileUri);
   const transcriptionJSON = await getObjectResult.Body?.transformToString();
   const transcriptionResult: TranscriptionResult = JSON.parse(
@@ -65,13 +72,18 @@ try {
   const formattedTranscriptionResult = FormatService.format(
     transcriptionResult,
   );
+  spinner.succeed();
 
+  spinner.start("Summarizing via GPT...");
   const summaryResult = await openAIService.sendPrompt(
     formattedTranscriptionResult,
   );
+  spinner.succeed();
   console.log(summaryResult);
 } catch (error) {
+  spinner.fail();
   console.log(error);
 } finally {
   file.close();
+  Deno.exit();
 }

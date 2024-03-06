@@ -3,6 +3,7 @@ export { parseArgs } from "https://deno.land/std@0.214.0/cli/mod.ts";
 export { readAll } from "https://deno.land/std@0.214.0/io/mod.ts";
 export { fileTypeFromFile } from "npm:file-type";
 export { extname } from "https://deno.land/std@0.214.0/path/mod.ts";
+export { default as ora } from "npm:ora";
 
 export {
   GetObjectCommand,
