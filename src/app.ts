@@ -24,7 +24,6 @@ const transcriptionLang = flags.lang ?? "ja-JP";
 const languageModelName = flags.model;
 const speakerCount = Number(flags.speakerCount ?? 1);
 
-// ファイル読み込み or S3putObjectが遅い
 const file = await Deno.open(filePath);
 const fileCotent = await readAll(file);
 const fileExtension = extname(filePath).replace(".", "");
