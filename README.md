@@ -38,4 +38,24 @@ It can also distinguish speakers and output the transcription separately for eac
 
 ## Usage
 
+### 1. Create .env file and fill in environment variables as per the following example.
+
+```
+$ git clone 
+$ cd path/to/transcriptor
+$ touch .env
+```
+
+```
+AWS_ACCESS_KEY_ID="YOUR_AWS_IAM_ACCESS_KEY_ID"
+AWS_SECRET_ACCESS_KEY="YOUR_AWS_IAM_SECRET_ACCESS_KEY"
+AWS_REGION="your-aws-region"
+AWS_S3_BUCKET_NAME='your-s3-bucket-name'
+
+OPENAI_API_KEY="YOUR_OPENAI_API_KEY"
+OPENAI_GPT_MODEL="your-prefer-gpt-model(ex. gpt-3.5-turbo)"
+OPENAI_SYSTEM_PROMPT="system prompt for summarizing with GPT"
+```
+
+### 2. 
 
