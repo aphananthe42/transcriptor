@@ -9,12 +9,13 @@ https://github.com/aphananthe42/transcriptor/assets/68156481/d6fe689d-ee05-4809-
 
 ## Overview
 
-This is a CLI tool for transcribing and summarizing audio data.  
-It can also distinguish speakers and output the transcription separately for each speaker, useful for meeting minutes.
+This is a CLI tool for transcribing and summarizing audio data. It can also
+distinguish speakers and output the transcription separately for each speaker,
+useful for meeting minutes.
 
 ## Requirement
 
-- Deno: >= 1.41.0
+- Deno >= 1.41.0
 - Amazon S3 Bucket
 - AWS IAM Access key pair
 - OpenAI API key
@@ -37,7 +38,8 @@ It can also distinguish speakers and output the transcription separately for eac
 
 1. Transcriptor put audio data to S3.
 2. AmazonTranscribe read audio data from S3.
-3. AmazonTranscribe output transcription result to S3.(same bucket as the one where the audio data is stored.)
+3. AmazonTranscribe output transcription result to S3.(same bucket as the one
+   where the audio data is stored.)
 4. Transcriptor get transcription result from S3.
 5. Transcriptor summarize transcription result via OpenAI API.
 
@@ -74,7 +76,7 @@ deno run --allow-env --allow-sys --allow-read --allow-net src/app.ts --file='pat
 ```
 
 #### Argument options
- 
+
 ```
 --lang='ja-JP'
 // The language spoken in the audio file.
@@ -92,4 +94,3 @@ deno run --allow-env --allow-sys --allow-read --allow-net src/app.ts --file='pat
 ## License
 
 [MIT License](https://github.com/aphananthe42/transcriptor/tree/main?tab=MIT-1-ov-file#readme)
-
