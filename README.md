@@ -38,10 +38,15 @@ It can also distinguish speakers and output the transcription separately for eac
 
 ## Usage
 
+### 0. Clone this repository
+
+```
+$ git clone https://github.com/aphananthe42/transcriptor
+```
+
 ### 1. Create .env file and fill in environment variables as per the following example.
 
 ```
-$ git clone 
 $ cd path/to/transcriptor
 $ touch .env
 ```
@@ -57,5 +62,29 @@ OPENAI_GPT_MODEL="your-prefer-gpt-model(ex. gpt-3.5-turbo)"
 OPENAI_SYSTEM_PROMPT="system prompt for summarizing with GPT"
 ```
 
-### 2. 
+### 2. Run script like below.
+
+```
+deno run --allow-env --allow-sys --allow-read --allow-net src/app.ts --file='path/to/your/audio/data/to/summarize
+```
+
+#### Argument options
+ 
+```
+--lang='ja-JP'
+// The language spoken in the audio file.
+// default: 'ja-JP'
+
+--model='gpt-3.5-turbo'
+// The name of the GPT model used for summarizing.
+// default: 'gpt-3.5-turbo'
+
+--speakerCount='4'
+// The number of speakers in the audio data.
+// default: 1
+```
+
+## License
+
+MIT License
 
