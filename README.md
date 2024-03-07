@@ -86,5 +86,5 @@ deno run --allow-env --allow-sys --allow-read --allow-net src/app.ts --file='pat
 
 ## License
 
-MIT License
+[MIT License](https://github.com/aphananthe42/transcriptor/tree/main?tab=MIT-1-ov-file#readme)
 
