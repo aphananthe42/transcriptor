@@ -30,14 +30,14 @@ export class TranscribeService {
       LanguageCode: languageCode as LanguageCode,
       MediaFormat: mediaFormat as MediaFormat ?? "wav",
       Media: {
-        MediaFileUri: `https://${Deno.env.get("AWS_S3_BUCKET_NAME")}.s3.${
-          Deno.env.get("AWS_REGION")
-        }.amazonaws.com/${targetObjectKey}`,
+        MediaFileUri: `https://${
+          Deno.env.get("TRANSCRIPTOR_S3_BUCKET_NAME")
+        }.s3.${Deno.env.get("AWS_REGION")}.amazonaws.com/${targetObjectKey}`,
       },
       ModelSettings: {
         LanguageModelName: languageModelName,
       },
-      OutputBucketName: Deno.env.get("AWS_S3_BUCKET_NAME"),
+      OutputBucketName: Deno.env.get("TRANSCRIPTOR_S3_BUCKET_NAME"),
       Settings: {
         ShowSpeakerLabels: !(speakerCount === 1),
         MaxSpeakerLabels: (speakerCount === 1) ? undefined : speakerCount,

@@ -14,7 +14,7 @@ export class OpenAIService {
       messages: [
         {
           role: "system",
-          content: Deno.env.get("OPENAI_SYSTEM_PROMPT") ?? "",
+          content: Deno.env.get("TRANSCRIPTOR_SYSTEM_PROMPT") ?? "",
         },
         {
           role: "user",

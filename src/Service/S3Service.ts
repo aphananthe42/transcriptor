@@ -20,7 +20,7 @@ export class S3Service {
     mimeType: string,
   ) {
     const params = new PutObjectCommand({
-      Bucket: Deno.env.get("AWS_S3_BUCKET_NAME"),
+      Bucket: Deno.env.get("TRANSCRIPTOR_S3_BUCKET_NAME"),
       Key: key,
       Body: body,
       ContentType: mimeType,
@@ -31,7 +31,7 @@ export class S3Service {
   async getObject(transcriptFileUri: string) {
     const { region, bucket, key } = AmazonS3URI(transcriptFileUri);
     const params = new GetObjectCommand({
-      Bucket: Deno.env.get("AWS_S3_BUCKET_NAME"),
+      Bucket: Deno.env.get("TRANSCRIPTOR_S3_BUCKET_NAME"),
       Key: key ?? "",
     });
     return await this.shared.send(params);
