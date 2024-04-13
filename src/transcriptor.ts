@@ -13,7 +13,6 @@ import { OpenAIService } from "./Service/OpenAIService.ts";
 
 loadSync({
   export: true,
-  envPath: "./.env",
 });
 
 const flags = parseArgs(Deno.args, {
