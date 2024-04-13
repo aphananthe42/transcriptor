@@ -4,12 +4,12 @@ import { readAll } from "./deps.ts";
 import { fileTypeFromFile } from "./deps.ts";
 import { extname } from "./deps.ts";
 import { ora } from "./deps.ts";
-import { S3Service } from "./Service/S3Service.ts";
-import { TranscribeService } from "./Service/TranscribeService.ts";
-import { DateService } from "./Service/DateService.ts";
-import { FormatService } from "./Service/FormatService.ts";
+import { S3Service } from "./Services/S3Service.ts";
+import { TranscribeService } from "./Services/TranscribeService.ts";
+import { DateService } from "./Services/DateService.ts";
+import { FormatService } from "./Services/FormatService.ts";
 import { TranscriptionResult } from "./Types/TranscriptionResult.ts";
-import { OpenAIService } from "./Service/OpenAIService.ts";
+import { OpenAIService } from "./Services/OpenAIService.ts";
 
 loadSync({
   export: true,

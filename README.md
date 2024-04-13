@@ -9,8 +9,8 @@ https://github.com/aphananthe42/transcriptor/assets/68156481/d5f3ea30-b681-4f13-
 
 ## Overview
 
-This is a CLI tool for transcribing and summarizing audio data.  
-It can also distinguish speakers and output the transcription separately for each speaker,
+This is a CLI tool for transcribing and summarizing audio data. It can also
+distinguish speakers and output the transcription separately for each speaker,
 useful for meeting minutes.
 
 ## Requirement
@@ -62,7 +62,7 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 ### 1. Install transcriptor from deno.land/x
 
 ```
-$ deno install --allow-env --allow-sys --allow-read --allow-net https://deno.land/x/transcriptor@v1.1.1/src/transcriptor.ts
+$ deno install --allow-env --allow-sys --allow-read --allow-net https://deno.land/x/transcriptor@v1.1.4/src/transcriptor.ts
 ```
 
 ### 2. Create .env file and fill in environment variables as per the following example.
