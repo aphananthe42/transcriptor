@@ -45,13 +45,27 @@ useful for meeting minutes.
 
 ## Usage
 
-### 0. Clone this repository
+### 0. Install Deno and set the PATH
 
 ```
-$ git clone https://github.com/aphananthe42/transcriptor
+$ curl -fsSL https://deno.land/x/install/install.sh | sh
 ```
 
-### 1. Create .env file and fill in environment variables as per the following example.
+Add the location of the deno executable to the PATH variable. (e.g., ~/.bashrc,
+~/.bash_profile, or ~/.zshrc)
+
+```
+export DENO_INSTALL="$HOME/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+```
+
+### 1. Clone this repository
+
+```
+$ deno install --allow-env --allow-sys --allow-read --allow-net https://deno.land/x/transcriptor@v1.1.1/src/transcriptor.ts
+```
+
+### 2. Create .env file and fill in environment variables as per the following example.
 
 ```
 $ touch .env
@@ -69,10 +83,10 @@ OPENAI_GPT_MODEL="your-prefer-gpt-model(ex. gpt-3.5-turbo)"
 TRANSCRIPTOR_SYSTEM_PROMPT="system prompt for summarizing with GPT"
 ```
 
-### 2. Run script like below.
+### 3. Run script like below.
 
 ```
-deno run --allow-env --allow-sys --allow-read --allow-net src/app.ts --file='path/to/your/audio/data/to/summarize
+transcriptor --file='path/to/your/audio/data/to/summarize
 ```
 
 #### Argument options
