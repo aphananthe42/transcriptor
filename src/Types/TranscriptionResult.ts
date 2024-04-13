@@ -1,4 +1,4 @@
-export interface TranscriptionResult {
+export type TranscriptionResult = {
   jobName: string;
   accountId: string;
   status: string;
@@ -37,4 +37,4 @@ export interface TranscriptionResult {
       },
     ];
   };
-}
+};

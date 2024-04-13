@@ -1,4 +1,4 @@
-import { TranscriptionResult } from "../Entity/TranscriptionResult.ts";
+import { TranscriptionResult } from "../Types/TranscriptionResult.ts";
 
 export class FormatService {
   static format(transcriptionResult: TranscriptionResult): string {

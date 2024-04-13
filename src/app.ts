@@ -8,7 +8,7 @@ import { S3Service } from "./Service/S3Service.ts";
 import { TranscribeService } from "./Service/TranscribeService.ts";
 import { DateService } from "./Service/DateService.ts";
 import { FormatService } from "./Service/FormatService.ts";
-import { TranscriptionResult } from "./Entity/TranscriptionResult.ts";
+import { TranscriptionResult } from "./Types/TranscriptionResult.ts";
 import { OpenAIService } from "./Service/OpenAIService.ts";
 
 loadSync({
