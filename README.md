@@ -59,7 +59,7 @@ export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 ```
 
-### 1. Clone this repository
+### 1. Install transcriptor from deno.land/x
 
 ```
 $ deno install --allow-env --allow-sys --allow-read --allow-net https://deno.land/x/transcriptor@v1.1.1/src/transcriptor.ts
